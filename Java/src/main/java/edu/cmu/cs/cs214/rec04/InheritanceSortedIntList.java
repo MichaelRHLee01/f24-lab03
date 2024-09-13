@@ -10,7 +10,37 @@ package edu.cmu.cs.cs214.rec04;
  *
  */
 
-public class InheritanceSortedIntList {
+public class InheritanceSortedIntList extends SortedIntList {
     // Write your implementation below with API documentation
+
+    private int totalAdded;
+
+    public InheritanceSortedIntList() {
+        this.totalAdded = 0;
+    }
+
+    @Override
+    public boolean add(int element) {
+        totalAdded++;
+        return super.add(element);
+    }
+
+    @Override
+    public boolean addAll(IntegerList elements) {
+        // totalAdded += elements.size();
+        return super.addAll(elements);
+        // boolean modified = false; // Track if any elements were actually added
+        // for (int i = 0; i < elements.size(); i++) {
+        // if (add(elements.get(i))) { // Call add for each element individually
+        // modified = true;
+        // }
+        // }
+        // return modified;
+
+    }
+
+    public int getTotalAdded() {
+        return totalAdded;
+    }
 
 }
